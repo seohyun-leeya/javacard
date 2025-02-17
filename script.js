@@ -57,15 +57,15 @@ function play() {
     console.log("chance", chances);
 
     if(userValue < computerNumber) {
-        resultArea.textContent = "UP"
+        resultArea.textContent = "UP 안 올라가면 다 죽어"
         resultAreaImg.src="https://ojsfile.ohmynews.com/PHT_IMG_FILE/2022/0826/IE003040838_PHT.jpg"
         // console.log("UP")
     } else if(userValue > computerNumber){
-        resultArea.textContent = "DOWN"
+        resultArea.textContent = "DOWN 영차영차"
         resultAreaImg.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKJYpaHY_MxNbEpnzoW_pF8D9_yC85rCVGEA&s"
         // console.log("DOWN")
     } else {
-        resultArea.textContent = "정답"
+        resultArea.textContent = "정답! 스마일~"
         resultAreaImg.src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202110/06/029fb088-3ef6-4e89-bb4c-7685d241da9e.jpg"
         gameOver=true
         // console.log("정답")
@@ -97,7 +97,7 @@ function reset(){
     // 새로운 번호 생성
     pickRandomNumber();
 
-    resultArea.textContent = "결과값"
+    resultArea.textContent = "무궁화 숫자가 피었습니다"
 
 
 }
