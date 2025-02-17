@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    padding: 10%;
+    padding: 3%;
     background-image: url(https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/a3nP/image/G9eeCGeYAdboc9jxAmhN_bYtbFU.jpeg);
     background-size: cover;
     /* background-repeat: no-repeat; */
@@ -23,19 +23,30 @@ body {
     text-align: center;
 }
 
+.audio-set {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .black-han-sans-regular {
     font-family: "Black Han Sans", serif;
     font-weight: 400;
     font-style: normal;
   }
   
-@media(max-width: 600px) {
+  @media screen and (max-width:48rem) {
     .main-image {
         width: 100%;
     }
 
     .main-position {
-        padding: 20%;
+        padding: 20px;
     }
+
+    .audio-set {
+        justify-content: center;
+        align-items: center;
+        
 
 }
