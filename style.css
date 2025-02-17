@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    padding: 10%;
+    background-image: url(https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/a3nP/image/G9eeCGeYAdboc9jxAmhN_bYtbFU.jpeg);
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+}
+
+.main-img {
+    width: 30%;
+}
+
+.go-color{
+    background-color: #EC118F;
+}
+
+.reset-color {
+    background-color: #326872;
+}
+  
+.input-size{
+    width: 200px;
+    text-align: center;
+}
+
+.black-han-sans-regular {
+    font-family: "Black Han Sans", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+@media(max-width: 600px) {
+    .main-image {
+        width: 100%;
+    }
+
+    .main-position {
+        padding: 20%;
+    }
+
+}

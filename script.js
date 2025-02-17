@@ -9,30 +9,98 @@
 //유저가 이미 입력한 숫자를 또 입력하면 알려준다, 기회를 깎지 않는다
 
 let computerNumber = 0;
+let answerArea = document.getElementById("answer-area")
 let playButton = document.getElementById("play-button");
 let userInput = document.getElementById("user-input")
 let resultArea = document.getElementById("result-area")
+let resultAreaImg = document.getElementById("result-img")
+let resetButton = document.getElementById("reset-button")
+let chances 
+let gameOver 
+let chanceArea=document.getElementById("chance-area")
+let history = []
 
 playButton.addEventListener("click",play)
+resetButton.addEventListener("click",reset)
+userInput.addEventListener("focus",function(){userInput.value=""})
 
+//초기설정
+function init() {
+    chances = 3
+    gameOver = false
+    history = []
+    chanceArea.textContent="남은찬스:3번"
+    resultAreaImg.src="https://img.seoul.co.kr/img/upload/2021/10/25/SSI_20211025151321_O2.jpg"
+}
 
 function pickRandomNumber() {
     computerNumber = Math.floor(Math.random()*100)+1; //랜덤한 숫자를 뽑을 수 있는 함수
     console.log("정답",computerNumber);
+    answerArea.textContent=`${computerNumber}`
 }
 
 function play() {
     let userValue = userInput.value
+
+    if(userValue<1 || userValue>100){
+        resultArea.textContent="1과 100사이 숫자를 입력해주세요."
+        return;
+    }
+
+    if(history.includes(userValue)){
+        resultArea.textContent="이미 입력한 숫자입니다."
+        return;
+    }
+
+    chances --;
+    chanceArea.textContent=`남은기회:${chances}번`;
+    console.log("chance", chances);
+
     if(userValue < computerNumber) {
         resultArea.textContent = "UP"
+        resultAreaImg.src="https://ojsfile.ohmynews.com/PHT_IMG_FILE/2022/0826/IE003040838_PHT.jpg"
         // console.log("UP")
     } else if(userValue > computerNumber){
         resultArea.textContent = "DOWN"
+        resultAreaImg.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKJYpaHY_MxNbEpnzoW_pF8D9_yC85rCVGEA&s"
         // console.log("DOWN")
     } else {
         resultArea.textContent = "정답"
+        resultAreaImg.src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202110/06/029fb088-3ef6-4e89-bb4c-7685d241da9e.jpg"
+        gameOver=true
         // console.log("정답")
+    }
+
+
+    history.push(userValue)
+    console.log(history)
+
+    if (chances < 1) {
+        gameOver = true
+
+    }
+
+    if (gameOver == true) {
+        playButton.disabled = true
     }
 }
 
+function reset(){
+    init()
+
+    if (gameOver == false) {
+        playButton.disabled = false}
+
+    //user input창이 깨끗하게 정리
+    userInput.value = "";
+
+    // 새로운 번호 생성
+    pickRandomNumber();
+
+    resultArea.textContent = "결과값"
+
+
+}
+
+init()
 pickRandomNumber();
